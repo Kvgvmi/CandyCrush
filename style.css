@@ -37,3 +37,19 @@ h1 {
     max-width: 100vh;
     display: flex;
   }
+
+.scoreBoard {
+  background-color: cyan;
+  border-radius: 20px;
+  margin-top: 200px;
+  margin-left: 200px;
+  width: auto;
+  height: 120px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: #85796b;
+  }
