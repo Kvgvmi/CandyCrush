@@ -173,3 +173,27 @@ function dragEnd() {
         }
     }
     checkRowForFour();
+//For Column of Four
+function checkColumnForFour() {
+    for (i = 0; i < 39; i++) {
+        let columnOfFour = [i, i + width, i + width * 2, i + width * 3];
+        let decidedColor = squares[i].style.backgroundImage;
+        const isBlank = squares[i].style.backgroundImage === "";
+
+        if (
+            columnOfFour.every(
+                (index) =>
+                    squares[index].style.backgroundImage === decidedColor &&
+                    !isBlank
+            )
+        ) {
+            score += 4;
+            scoreDisplay.innerHTML = score;
+            columnOfFour.forEach((index) => {
+                squares[index].style.backgroundImage = "";
+            });
+        }
+    }
+}
+checkColumnForFour();
+
