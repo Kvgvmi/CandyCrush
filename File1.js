@@ -238,3 +238,37 @@ function checkRowForThree() {
     }
 }
 checkRowForThree();
+
+//For Column of Three
+function checkColumnForThree() {
+    for (i = 0; i < 47; i++) {
+        let columnOfThree = [i, i + width, i + width * 2];
+        let decidedColor = squares[i].style.backgroundImage;
+        const isBlank = squares[i].style.backgroundImage === "";
+
+        if (
+            columnOfThree.every(
+                (index) =>
+                    squares[index].style.backgroundImage === decidedColor &&
+                    !isBlank
+            )
+        ) {
+            score += 3;
+            scoreDisplay.innerHTML = score;
+            columnOfThree.forEach((index) => {
+                squares[index].style.backgroundImage = "";
+            });
+        }
+    }
+}
+checkColumnForThree();
+
+
+window.setInterval(function () {
+    checkRowForFour();
+    checkColumnForFour();
+    checkRowForThree();
+    checkColumnForThree();
+    moveIntoSquareBelow();
+}, 100);
+}
